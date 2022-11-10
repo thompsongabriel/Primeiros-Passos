@@ -1,3 +1,5 @@
+//Jogabilidade
+let chanceDeErro = 0;
 
 // Variáveis da bolinha
 let xBolinha = 300;
@@ -110,7 +112,8 @@ if(xBolinha + raio > xRaquete2
 //
 function movimentacaoRaquete2(){
     velocidadeYOponente =yBolinha- yRaquete2 - comprimentoRaquete / 2 - 30
-    yRaquete2 += velocidadeYOponente
+    yRaquete2 += velocidadeYOponente + chanceDeErro
+  calculaChanceDeErro()
 }
 
 function incluiPlacar(){
@@ -137,3 +140,16 @@ function marcaponto(){
     ponto.play()
   }
 }
+function calculaChanceDeErro(){
+  if(pontosOponente >= meusPontos){
+    chanceDeErro += 1}
+    if (chanceDeErro >= 39){
+      chanceDeErro = 40} 
+  else {
+  chanceDeErro -= 1
+  if (chanceDeErro  <= 35){
+    chanceDeErro = 35
+  }
+  }
+}
+
